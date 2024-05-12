@@ -2,6 +2,7 @@ import Link from "next/link";
 import MaxWidthwrapper from "./MaxWidthWrapper";
 import { Icons } from "./Icons";
 import NavItems from "./NavItems";
+import Cart from "./Cart";
 import { Button, buttonVariants } from "./ui/button";
 const Navbar = () => {
   const user = null;
