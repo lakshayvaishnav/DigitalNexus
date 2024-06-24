@@ -4,11 +4,12 @@ import { Icons } from "@/components/Icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
+import { trpc } from "@/trpc/client";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 const page = () => {
   const AuthCredentialsValidator = z.object({
@@ -28,8 +29,11 @@ const page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
+  const { mutate, isLoading } = trpc.auth.createPaylodUser.useMutation({});
+
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-    // send data to the server...
+  
+    mutate({ email, password });
   };
   return (
     <>
@@ -65,10 +69,10 @@ const page = () => {
                   ></Input>
                 </div>
                 <div className="grid gap-1 py-2">
-                  <Label {...register("password")} htmlFor="password">
-                    Password
-                  </Label>
+                  <Label htmlFor="password">Password</Label>
                   <Input
+                    {...register("password")}
+                    type="password"
                     className={cn({
                       "focus-visible:ring-red-500": errors.password,
                     })}
