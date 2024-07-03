@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Providers from "@/components/providers";
-
+import { ZodError } from "zod";
+import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -28,6 +29,8 @@ export default function RootLayout({
             <div className="flex-grow flex-1">{children}</div>
           </Providers>
         </main>
+
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );
