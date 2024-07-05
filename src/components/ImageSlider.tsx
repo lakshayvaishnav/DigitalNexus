@@ -60,10 +60,10 @@ const ImageSlider = ({ urls }: ImageSlider) => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            swiper?.slideNext();
+            swiper?.slidePrev();
           }}
           className={cn(activeStyles, "left-3 transition", {
-            [inactiveStyles]: slideConfig.isEnd,
+            [inactiveStyles]: slideConfig.isBeginning,
             "hover:bg-primary-300 text-primary-800 opacity-100":
               !slideConfig.isBeginning,
           })}
