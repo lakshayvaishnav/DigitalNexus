@@ -1,3 +1,4 @@
+import { Product } from "@/payload-types";
 import { User } from "payload/dist/auth";
 import { BeforeChangeHook } from "payload/dist/collections/config/types";
 import { Access, CollectionConfig } from "payload/types";
@@ -23,7 +24,9 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
     },
   });
 
-  const ownProductFields = products.map((prod) => prod.product_files).flat();
+  const ownProductFields = products
+    .map((prod: any) => prod.product_files)
+    .flat();
 
   const { docs: orders } = await req.payload.find({
     collection: "orders",
