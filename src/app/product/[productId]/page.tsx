@@ -1,3 +1,5 @@
+import AddToCartButton from "@/components/AddToCartButton";
+import ImageSlider from "@/components/ImageSlider";
 import MaxWidthwrapper from "@/components/MaxWidthWrapper";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { getPayloadClient } from "@/get-payload";
@@ -113,6 +115,22 @@ const page = async ({ params }: PageProps) => {
                 </p>
               </div>
             </section>
+          </div>
+
+          {/* product images */}
+          <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
+            <div className="aspect-square rounded-lg">
+              <ImageSlider urls={validUrls} />
+            </div>
+          </div>
+
+          {/* add to cart part */}
+          <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
+            <div>
+              <div className="mt-10">
+                <AddToCartButton product={product} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
