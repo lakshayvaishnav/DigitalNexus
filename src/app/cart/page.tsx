@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PRODUCT_CATEGORIES } from "@/config";
 import { useCart } from "@/hooks/use-cart";
 import { cn, formatPrice } from "@/lib/utils";
+import { trpc } from "@/trpc/client";
 import { Check, Loader2, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +15,16 @@ const Page = () => {
   const { items, removeItem } = useCart();
 
   const router = useRouter();
+
+  const { mutate: createCheckoutSession, isLoading } =
+    trpc.payment.createSession.useMutation({
+      onSuccess: (data: { url: string | null } | undefined) => {
+        if (data?.url) {
+          router.push(data.url);
+        }
+        console.log("url is : " + data?.url);
+      },
+    }); 
 
   const productIds = items.map(({ product }) => product.id);
 
@@ -169,14 +180,39 @@ const Page = () => {
                   )}{" "}
                 </div>
               </div>
+
+              <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+                <div className="text-base font-medium text-gray-900">
+                  Order Total
+                </div>
+                <div className="text-base font-medium text-gray-900">
+                  {isMounted ? (
+                    formatPrice(cartTotal + fee)
+                  ) : (
+                    <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                  )}
+                </div>
+              </div>
             </div>
 
-            {/* <div className="mt-6">
-              <Button disabled={items.length === 0 || isLoading}></Button>
-            </div> */}
+            <div className="mt-6">
+              <Button
+                disabled={items.length === 0 || isLoading}
+                onClick={() => createCheckoutSession({ productIds })}
+                className="w-full"
+                size={"lg"}
+              >
+                {isLoading ? (
+                  <Loader2 className="w-4 h-4 animate-spin mr-1.5" />
+                ) : null}
+                Checkout
+              </Button>
+            </div>
           </section>
         </div>
       </div>
     </div>
   );
 };
+
+export default Page;
