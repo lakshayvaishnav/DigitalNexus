@@ -14,7 +14,7 @@ import { ZodError, z } from "zod";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const AuthCredentialsValidator = z.object({
     email: z.string().email(),
@@ -121,4 +121,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

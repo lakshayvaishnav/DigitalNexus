@@ -7,7 +7,7 @@ import { getPayloadClient } from "./get-payload";
 import { Product } from "./payload-types";
 import { ReceiptEmailHtml } from "./components/emails/ReceiptEmail";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API);
 
 export const stripeWebhookHandler = async (
   req: express.Request,
@@ -28,7 +28,7 @@ export const stripeWebhookHandler = async (
     return res
       .status(400)
       .send(
-        `webhoo error : ${
+        `webhook error : ${
           error instanceof Error ? error.message : "unknown error"
         }`
       );

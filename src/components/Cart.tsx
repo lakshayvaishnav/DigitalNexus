@@ -19,7 +19,7 @@ import { ScrollArea } from "@radix-ui/react-scroll-area";
 import CartItem from "./CartItem";
 import { useEffect, useState } from "react";
 
-const cart = () => {
+const Cart = () => {
   const { items } = useCart();
   const itemCount = items.length;
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -117,4 +117,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;

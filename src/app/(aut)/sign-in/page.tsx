@@ -14,7 +14,7 @@ import { ZodError, z } from "zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 
-const page = () => {
+const Page = () => {
   const searchParams = useSearchParams();
   const isSeller = searchParams.get("as") === "seller";
   const origin = searchParams.get("origin");
@@ -172,4 +172,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

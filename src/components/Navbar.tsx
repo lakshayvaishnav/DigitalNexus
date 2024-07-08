@@ -5,11 +5,13 @@ import NavItems from "./NavItems";
 import Cart from "./Cart";
 import { Button, buttonVariants } from "./ui/button";
 import { cookies } from "next/headers";
-import { getServerSideUser } from "@/lib/payload-utils";
+import { getServerSideUser } from "../lib/payload-utils";
 import UserAccountNav from "./UserAccountNav";
+import { User } from "lucide-react";
 const Navbar = async () => {
   const nextCookies = cookies();
   const { user } = await getServerSideUser(nextCookies);
+  console.log("user from navbar is :  " + JSON.stringify(user));
 
   return (
     <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
@@ -48,6 +50,7 @@ const Navbar = async () => {
                   )}
 
                   {user ? (
+                    //@ts-ignore
                     <UserAccountNav user={user} />
                   ) : (
                     <Link

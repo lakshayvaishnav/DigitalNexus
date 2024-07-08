@@ -1,6 +1,6 @@
 "use client";
 
-import { User } from "@/payload-types";
+import { User } from "../payload-types";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
