@@ -19,9 +19,20 @@ const createContext = ({
   res,
 }: trpcExpress.CreateExpressContextOptions) => ({ req, res });
 
-export type ExpressContext = inferAsyncReturnType<typeof createContext>
+export type ExpressContext = inferAsyncReturnType<typeof createContext>;
+
+export type Webhookrequest = IncomingMessage & {
+  rawBody: Buffer;
+};
 
 const start = async () => {
+  const webhookMiddleware = bodyParser.json({
+    verify: (req: Webhookrequest, _, buffer) => {
+      req.rawBody = buffer;
+    },
+  });
+
+  app.post("/api/webhooks/stripe", webhookMiddleware, stripeWebhookHandler);
   const payload = await getPayloadClient({
     initOptions: {
       express: app,
