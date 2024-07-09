@@ -1,18 +1,33 @@
+import HeroSection from "@/components/HeroSection";
 import Image from "next/image";
-import { WavyBackground } from "@/acertinity-components/wavy-backgroung";
+import Link from "next/link";
+import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react";
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
+const perks = [
+  {
+    name: "Instant Delivery",
+    Icon: ArrowDownToLine,
+    description:
+      "Get your assets delivered to your email in seconds and download them right away.",
+  },
+
+  {
+    name: "Guranteed Quality",
+    Icon: CheckCircle,
+    description:
+      "Every asset on our platform is verified by our team to insure highest quality standards. Not Happy ? wee offer 30 days refund guranteed",
+  },
+  {
+    name: "For the Planet",
+    Icon: Leaf,
+    description:
+      "We have pledged 1% sales to the preservation and restoration of the natural environment.",
+  },
+];
 export default function Home() {
   return (
     <>
-      <MaxWidthWrapper classname="overflow-x-hidden">
-        <div className="absolute py-20 mx-auto text-center flex flex-col items-center max-w-screen-xl top-20 left-10 right-10 z-10">
-          <h1 className="text-xl font-bold tracking-tight sm:text-6xl">
-            Your MarketPlace for high-qualtiy <br />
-            <span className="text-red-500">digital assets</span>
-          </h1>
-        </div>
-        <WavyBackground className="absolute`" />
-      </MaxWidthWrapper>
+      <HeroSection />
     </>
   );
 }
