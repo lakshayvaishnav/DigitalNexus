@@ -1,8 +1,24 @@
-import { initTRPC } from "@trpc/server";
+import { TRPCError, initTRPC } from "@trpc/server";
+import { User } from "payload/dist/auth";
+import { PayloadRequest } from "payload/types";
 
 const t = initTRPC.context().create();
-
 const middleware = t.middleware;
+
+const isAuth = middleware(async ({ ctx, next }) => {
+  const req = ctx.req as PayloadRequest;
+  const { user } = req as { user: User | null };
+
+  if (!user || !user.id) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+
+  return next({
+    ctx: {
+      user,
+    },
+  });
+});
 
 export const router = t.router;
 
@@ -10,3 +26,4 @@ export const router = t.router;
 export const publicProcedure = t.procedure;
 
 //todo create private procedure.
+export const privateProcedure = t.procedure.use(isAuth);
