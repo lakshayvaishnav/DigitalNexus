@@ -30,13 +30,6 @@ export default function Home() {
       <HeroSection />
 
       <section className="relative">hello testing bithc</section>
-      <section className="relative">hello testing bithc</section>
-      <section className="relative">hello testing bithc</section>
-      <section className="relative">hello testing bithc</section>
-      <section className="relative">hello testing bithc</section>
-      <section className="relative">hello testing bithc</section>
-      <section className="relative">hello testing bithc</section>
-      <section className="relative">hello testing bithc</section>
     </>
   );
 }
