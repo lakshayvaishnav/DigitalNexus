@@ -1,9 +1,13 @@
 import express from "express";
 import { getPayloadClient } from "./get-payload";
 import { nextApp } from "./next-utils";
-
+import * as trpcExpress from "@trpc/server/adapter/express";
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
+
+// const createContext = ({
+//   req, res
+// } : )
 
 const start = async () => {
   // payload ...
