@@ -1,8 +1,9 @@
+import { ExpressContext } from "../server";
 import { TRPCError, initTRPC } from "@trpc/server";
 import { User } from "payload/dist/auth";
 import { PayloadRequest } from "payload/types";
 
-const t = initTRPC.context().create();
+const t = initTRPC.context<ExpressContext>().create();
 const middleware = t.middleware;
 
 const isAuth = middleware(async ({ ctx, next }) => {

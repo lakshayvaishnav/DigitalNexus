@@ -24,7 +24,7 @@ export default function RootLayout({
         }
       >
         <Providers>
-          <main className=" flex flex-col min-h-screen relative">
+          <main className=" flex flex-col min-h-screen relative overflow-x-hidden">
             <div className="flex-grow flex-1">{children}</div>
           </main>
         </Providers>
