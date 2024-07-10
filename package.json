@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@payloadcms/bundler-webpack": "^1.0.7",
     "@payloadcms/db-mongodb": "^1.5.2",
     "@payloadcms/richtext-slate": "^1.5.2",
@@ -34,6 +35,7 @@
     "payload": "^2.23.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.52.1",
     "react-toastify": "^10.0.5",
     "simplex-noise": "^4.0.1",
     "sonner": "^1.5.0",
