@@ -1,3 +1,5 @@
+"use client";
+
 import { trpc } from "@/trpc/client";
 import { Loader2, Loader2Icon, XCircle } from "lucide-react";
 import Image from "next/image";
@@ -57,3 +59,5 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
     );
   }
 };
+
+export default VerifyEmail;

@@ -45,8 +45,10 @@ const Page = () => {
       }
       toast.error("something went wrong. Please try again");
     },
-    // todo add verification email
-    // onSuccess : ({})
+    onSuccess: ({ sentToEmail }) => {
+      toast.success(`verification email sent to ${sentToEmail}`);
+      router.push("/verify-email?to=" + sentToEmail);
+    },
   });
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
