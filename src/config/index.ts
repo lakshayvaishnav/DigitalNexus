@@ -41,6 +41,46 @@ export const PRODUCT_CATEGORIES = [
       },
     ],
   },
-  { label: "Artwork", value: "artwork" as const },
-  { label: "Skin", value: "skin" as const },
+  {
+    label: "Artwork",
+    value: "artwork" as const,
+    featured: [
+      {
+        name: "Favourite Icon Picks",
+        href: "#",
+        imgeSrc: "/nav/icons/picks.jpg",
+      },
+      {
+        name: "New Arrivals",
+        href: "#",
+        imgeSrc: "/nav/icons/new.jpg",
+      },
+      {
+        name: "BestSelling Icons",
+        href: "#",
+        imgeSrc: "/nav/icons/bestsellers.jpg",
+      },
+    ],
+  },
+  {
+    label: "Skin",
+    value: "skin" as const,
+    featured: [
+      {
+        name: "Favourite Icon Picks",
+        href: "#",
+        imgeSrc: "/nav/icons/picks.jpg",
+      },
+      {
+        name: "New Arrivals",
+        href: "#",
+        imgeSrc: "/nav/icons/new.jpg",
+      },
+      {
+        name: "BestSelling Icons",
+        href: "#",
+        imgeSrc: "/nav/icons/bestsellers.jpg",
+      },
+    ],
+  },
 ];

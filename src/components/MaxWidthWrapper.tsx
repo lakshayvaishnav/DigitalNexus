@@ -1,7 +1,7 @@
 import { cn } from "../lib/utils";
 import { ReactNode } from "react";
 
-export const MaxWidthWrapper = ({
+const MaxWidthWrapper = ({
   classname,
   children,
 }: {
@@ -18,3 +18,5 @@ export const MaxWidthWrapper = ({
     </div>
   );
 };
+
+export default MaxWidthWrapper;

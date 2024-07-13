@@ -10,8 +10,8 @@ export interface Config {
   collections: {
     users: User;
     products: Product;
-    product_files: ProductFile;
     media: Media;
+    product_files: ProductFile;
     orders: Order;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -54,7 +54,7 @@ export interface Product {
   priceId?: string | null;
   stripeId?: string | null;
   images: {
-    images: string | Media;
+    image: string | Media;
     id?: string | null;
   }[];
   updatedAt: string;

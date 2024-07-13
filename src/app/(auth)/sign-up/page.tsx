@@ -103,7 +103,7 @@ const Page = () => {
                   )}
                 </div>
               </div>
-              <Button>Sign Up</Button>
+              <Button className="w-full mt-2">Sign Up</Button>
             </form>
           </div>
         </div>

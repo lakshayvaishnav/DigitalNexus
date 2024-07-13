@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
 import "./globals.css";
-import { cn } from "../lib/utils";
-import Providers from "@/components/Providers";
-
+import Navbar from "../components/Navabar";
+import Providers from "../components/Providers";
+import { ZodError } from "zod";
+import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,15 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={
-          (cn(" h-full font-sans antialiased relative"), inter.className)
-        }
+        className={cn("relative h-full font-sans antialiased", inter.className)}
       >
-        <Providers>
-          <main className=" flex flex-col min-h-screen relative overflow-x-hidden">
+        <main className="relative bg-black flex flex-col min-h-screen overflow-x-hidden">
+          <Providers>
+            <Navbar />
             <div className="flex-grow flex-1">{children}</div>
-          </main>
-        </Providers>
+          </Providers>
+        </main>
+
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

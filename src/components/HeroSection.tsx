@@ -1,5 +1,4 @@
 import { WavyBackground } from "@/acertinity-components/wavy-backgroung";
-import { MaxWidthWrapper } from "./MaxWidthWrapper";
 import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
 
@@ -17,12 +16,12 @@ const HeroSection: React.FC = () => {
             our team to ensure out highest quality standards
           </p>
           <div className="flex flex-col sm:flex-row  gap-4 mt-6 ">
-            <Link href={"/signup"}>
+            <Link href={"/sign-up"}>
               <Button className="px-10 py-5" variant={"default"}>
-                Sign Up
+                Create Account
               </Button>
             </Link>
-            <Link href={"/signin"}>
+            <Link href={"/sign-in"}>
               <Button className="px-10 py-5" variant={"outline"}>
                 Sign In &rarr;{" "}
               </Button>
