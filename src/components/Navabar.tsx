@@ -8,6 +8,8 @@ import { cookies } from "next/headers";
 import { getServerSideUser } from "../lib/payload-utils";
 import UserAccountNav from "../components/UserAccountnav";
 import { User } from "lucide-react";
+import "../../public/ninja.jpg";
+import Image from "next/image";
 const Navbar = async () => {
   const nextCookies = cookies();
   const { user } = await getServerSideUser(nextCookies);
@@ -23,7 +25,7 @@ const Navbar = async () => {
 
               <div className="ml-4 flex lg:ml-0 ">
                 <Link href="/">
-                  <Icons.logo className="h-10 w-10" />
+                  <Image src={"/dog.png"} alt="logo" width={32} height={32} />
                 </Link>
               </div>
 
